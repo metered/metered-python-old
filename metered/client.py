@@ -3,7 +3,7 @@
 
 import http.client
 import json
-import partial
+from functools import partial
 from typing import Any
 
 def __call__(host: str):
