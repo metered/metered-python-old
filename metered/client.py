@@ -6,9 +6,6 @@ import json
 from functools import partial as _partial
 from typing import Any
 
-def partial(**kw):
-    return _partial(request, **kw)
-
 def request(host: str, query: str, variables: Dict[Any]={}, path: str = "/"):
     payload = {
       "query": query,
@@ -28,3 +25,6 @@ def request(host: str, query: str, variables: Dict[Any]={}, path: str = "/"):
       raise Exception(json.dumps(json_data["errors"]))
     
     return json_data
+
+def partial(**kw):
+    return _partial(request, **kw)
