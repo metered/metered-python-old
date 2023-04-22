@@ -3,11 +3,11 @@
 
 import http.client
 import json
-from functools import partial
+from functools import partial as _partial
 from typing import Any
 
-def __call__(host: str):
-    return partial(request, host=host)
+def partial(**kw):
+    return _partial(request, **kw)
 
 def request(host: str, query: str, variables: Dict[Any]={}, path: str = "/"):
     payload = {
